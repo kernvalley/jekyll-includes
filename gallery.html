@@ -1,0 +1,29 @@
+<div class="gallery card color-alt" id="gallery-{{ include.images | first }}" data-delay="{{ include.delay | default: 6000 }}">
+	<figure class="relative">
+		{% assign current = include.images | first %}
+		{% include imgur.html
+			url=current
+			sizes=include.sizes
+			class='current'
+		%}
+		<figcaption></figcaption>
+		<button type="button" class="no-border background-primary absolute bottom right" data-click="fullscreen" hidden="">
+			{% include icon.html icon='fullscreen' %}
+		</button>
+		<button type="button" class="prev big filter-shadow-dark background-none no-border color-alt absolute bottom left">
+			{% include icon.html icon='prev' %}
+		</button>
+		<button type="button" class="next big filter-shadow-dark background-none no-border color-alt absolute bottom right">
+			{% include icon.html icon='next' %}
+		</button>
+	</figure>
+	<div class="thumbnails">
+		{% for image in include.images %}
+			{% include imgur.html
+				url=image
+				sizes='(min-width: 1000px) 10vw, 30vw'
+				class='thumbnail'
+			%}
+		{% endfor %}
+	</div>
+</div>

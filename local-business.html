@@ -1,0 +1,30 @@
+<figure class="float-left" itemprop="image" itemtype="http://schema.org/ImageObject" itemscope="">
+	{% include imgur.html url=include.business.image.url itemprop='url' sizes='20vw' %}
+</figure>
+<div class="float-left">
+	<h3 itemprop="name">
+		{% if include.business.url %}
+			<a href="{{ include.business.url }}" class="color-inherit">{{ include.business.name }}</a>
+		{% else %}
+			{{ include.business.name }}
+		{% endif %}
+	</h3>
+	{% if include.business.url %}
+		{% include url.html url=include.business.url %}<br />
+	{% endif %}
+	{% if include.business.telephone %}
+		{% include telephone.html telephone=include.business.telephone %}<br />
+	{% endif %}
+	{% if include.business.email %}
+		{% include email.html email=include.business.email %}<br />
+	{% endif %}
+	{% if include.business.address %}
+		{% include address.html address=include.business.address %}
+	{% endif %}
+	{% if include.business.sameAs %}
+		<div class="social-icons big">
+			{% include social-links.html links=include.business.sameAs %}
+		</div>
+	{% endif %}
+	<meta itemprop="priceRange" content="{{ include.business.priceRange | default: '$$' }}" />
+</div>

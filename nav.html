@@ -1,0 +1,41 @@
+<nav class="sticky top shadow-dark color-alt flex row title-font center no-text-decoration z-3" role="navigation" itemtype="http://schema.org/SiteNavigationElement" itemscope="">
+	{% if page.url != '/' %}
+		<a href="{{ '/' | absolute_url }}" rel="bookmark" title="Home" class="color-inherit">
+			{% include icon.html icon='home' %}
+			<span class="mobile-hidden">Home</span>
+		</a>
+	{% endif %}
+	<a href="{{ '#top' | prepend: page.url | absolute_url }}" title="Top" class="color-inherit">
+		{% include icon.html icon='top' %}
+		<span class="mobile-hidden">Top</span>
+	</a>
+	{% if page.comments %}
+		<a href="{{ page.url | append: '#disqus_thread' | absolute_url }}" title="Comments">
+			{% include icon.html icon='comments' %}
+			<span class="mobile-hidden">Comments</span>
+		</a>
+	{% endif %}
+	<a href="{{ page.url | append: '#about-dialog' | absolute_url }}" class="color-inherit" title="About">
+		{% include icon.html icon='avatar-default' %}
+		<span class="mobile-hidden">About</span>
+	</a>
+	{% if page.layout != 'full-width' %}
+	<a href="{{ '#pinned-posts' | prepend: page.url | absolute_url }}" title="Pinned Posts" class="color-inherit">
+		{% include icon.html icon='pin' %}
+		<span class="mobile-hidden">Pinned Posts</span>
+	</a>
+	<a href="{{ '#calendar' | prepend: page.url | absolute_url }}" title="Calendar" class="color-inherit">
+		{% include icon.html icon='calendar' %}
+		<span class="mobile-hidden">Calendar</span>
+	</a>
+	{% else %}
+		<a href="{{ '/posts/javascript/' | absolute_url }}" class="color-inherit">
+			<img src="{{ '/img/logos/javascript.svg' | absolute_url }}" class="icon" alt="" />
+			JavaScript
+		</a>
+		<a href="{{ '/posts/php/' | absolute_url }}" class="color-inherit">
+			<img src="{{ '/img/logos/php.svg' | absolute_url }}" class="icon" alt="" />
+			PHP
+		</a>
+	{% endif %}
+</nav>

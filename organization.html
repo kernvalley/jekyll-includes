@@ -1,0 +1,46 @@
+<div class="card shadow clearfix" style="display: inline-block; width: 45%" itemtype="http://schema.org/Organization" itemscope="">
+	<div class="float-left" style="margin-right: 1.3em" itemprop="image" itemtype="http://schema.org/ImageObject" itemscope="">
+		<img src="{{ include.company.image.url }}" itemprop="url" />
+	</div>
+	<div>
+		<h3 itemprop="name">{{ include.company.name }}</h3>
+		<a href="{{ include.company.url }}" itemprop="url" content="{{ include.company.url }}">
+			{% include icon.html icon='web-browser' %}
+			<span>{{ include.company.url | replace: 'http://', '' | replace: 'https://', '' }}</span>
+		</a>
+		<br />
+		<a href="{{ include.company.email  | prepend: 'mailto:' }}" itemprop="email" content="{{ include.company.email }}">
+			{% include icon.html icon='mail-unread' %}
+			<span>{{ include.company.email }}</span>
+		</a>
+		<br />
+		<a href="{{ include.company.telephone | prepend: 'tel:' }}" itemprop="telephone" content="{{ include.company.telephone | replace: '+', '' }}">
+			{% include icon.html icon='call-start' %}
+			<span>{{ include.company.telephone | replace: '+', '' }}</a>
+		</a>
+		<br />
+		<div class="clearfix">
+			<span class="float-left">{% include icon.html icon='location' %}</span>
+			<div class="float-left">
+				{% include address.html address=include.company.address itemprop='address' %}
+			</div>
+		</div>
+		<div class="big">
+			<a href="https://facebook.com/#" target="_blank" rel="noopener external" itemprop="sameAs">
+				{% include icon.html icon='facebook' %}
+			</a>
+			<a href="https://twitter.com/" target="_blank" rel="noopener external" itemprop="sameAs">
+				{% include icon.html icon='twitter' %}
+			</a>
+			<a href="https://instagram.com" target="_blank" rel="noopener external" itemprop="sameAs">
+				<img src="{{ '/img/logos/instagram.svg' | absolute_url }}" class="icon" />
+			</a>
+			<a href="https://yelp.com" target="_blank" rel="noopener external" itemprop="sameAs">
+				{% include icon.html icon='yelp' %}
+			</a>
+			<a href="https://tripadvisor.com" target="_blank" rel="noopener external" itemprop="sameAs">
+				{% include icon.html icon='tripadvisor' %}
+			</a>
+		</div>
+	</div>
+</div>
