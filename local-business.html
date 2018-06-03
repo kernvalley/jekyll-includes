@@ -26,5 +26,8 @@
 			{% include social-links.html links=include.business.sameAs %}
 		</div>
 	{% endif %}
+	{% if include.business.openingHours %}
+		<meta itemprop="openingHours" content="{{ include.business.openingHours }}" />
+	{% endif %}
 	<meta itemprop="priceRange" content="{{ include.business.priceRange | default: '$$' }}" />
 </div>

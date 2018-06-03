@@ -1,4 +1,7 @@
 <div id="contact-section" class="clearfix font-article background-primary color-default" itemtype="http://schema.org/Person" itemprop="about" itemscope="">
+	<a href="{{ site.url | absolute_url }}" title="Home" class="fixed top left color-alt filter-shadow-dark bigger">
+		{% include icon.html icon='home' %}
+	</a>
 	<figure itemprop="image" itemtype="http://schema.org/ImageObject" itemscope="" class="float-left">
 		{% include gravatar.html
 			gravatar=include.person.image.gravatar
@@ -8,9 +11,6 @@
 		%}
 	</figure>
 	<section class="contact-info-card inline-block">
-		<a href="{{ site.url | absolute | url }}" title="Home" class="fixed top left color-alt filter-shadow-dark bigger">
-			{% include icon.html icon='home' %}
-		</a>
 		<h1 class="center font-title">
 			<span itemprop="givenName">{{ include.person.givenName }}</span>
 			{% if include.person.additionalName %}<span itemprop="additionalName">{{ include.person.additionalName }}</span>{% endif %}

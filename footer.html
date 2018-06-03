@@ -1,8 +1,16 @@
 {% assign footer-icon-class="icon current-color icon-twirl transition-speed-normal transition-overshoot transition-transform" %}
-<footer id="contact" class="color-alt no-text-decoration optimize-speed fixed bottom" role="contentinfo">
-	<div>
-		<a href="https://rafting.kernvalley.us/">Rafting</a>
-		<a href="{{ '/contact/' | absolute_url }}">Contact</a>
+<footer id="footer" class="color-alt no-text-decoration optimize-speed" role="contentinfo">
+	<div class="flex row">
+		<ul class="footer-links">
+			{% for link in site.data.links.footer %}
+				<li class="footer-link">
+					<a class="color-inherit" href="{{ link.href | absolute_url }}" target="{{ link.target | default: '_self' }}"{% if link.external %} rel="external noopener"{% endif %}  referrerpolicy="{{ link.referrerpolicy | default: 'origin-when-cross-origin' }}">
+						{% if link.icon %}{% include icon.html icon=link.icon class=footer-icon-class %}{% endif %}
+						<span>{{ link.text }}</span>
+					</a>
+				</li>
+			{% endfor %}
+		</ul>
 	</div>
-	<p>&copy;<time itemprop="copyrightYear"> {{ 'now' | date: "%Y" }}</time> <a href="{{ site.url | absolute_url }}">{{ site.title }}</a></p>
+	<p>&copy;<time itemprop="copyrightYear"> {{ 'now' | date: "%Y" }}</time> <a href="https://kernvalley.us" class="color-inherit">{{ site.title }}</a></p>
 </footer>
