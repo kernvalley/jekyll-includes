@@ -1,0 +1,15 @@
+<dialog id="login-dialog" class="animation-speed-normal animation-ease-in-out fadeInDown relative">
+	<form name="login" method="post" action="{{ include.action | default: '/login/' | absolute_url }}">
+		<fieldset>
+			<legend>Login</legend>
+			<label for="email">{% include icon.html icon='mail-unread' %}</label>
+			<input type="email" name="email" id="email" autocomplete="email" placeholder="user@example.com" required="" />
+			<br />
+			<label for="password">{% include icon.html icon='password' %}</label>
+			<input type="password" name="password" id="password" autocomplete="current-password" minlength="8" placeholder="********" required="" />
+		</fieldset>
+		<br />
+		<button type="submit">{% include icon.html icon='check' %}</button>
+		<button type="reset" data-close="#login-dialog">{% include icon.html icon='close' %}</button>
+	</form>
+</dialog>
