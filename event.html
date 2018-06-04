@@ -10,7 +10,7 @@
 			{{ include.event.name }}
 		</h4>
 		<time class="event-begin" itemprop="startDate" datetime="{{ include.event.startDate | date_to_xmlschema }}">
-			{% include icon.html icon='calendar' %}
+			{% include icon.html icon='events' %}
 			{{ include.event.startDate | date: '%a %b %-d, %Y %l:%M %p' }}
 		</time>
 	</div>
@@ -19,7 +19,7 @@
 		<summary role="button">More Info</summary>
 		<hr />
 		<time class="event-end" itemprop="endDate" datetime="{{ include.event.startDate | date_to_xmlschema }}">
-			{% include icon.html icon='calendar' %}
+			{% include icon.html icon='events' %}
 			<span>Ends:</span>
 			{{ include.event.endDate | date: '%a %b %-d, %Y %l:%M %p' }}
 		</time>
