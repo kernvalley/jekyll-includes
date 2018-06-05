@@ -1,6 +1,6 @@
 <address class="clearfix" itemprop="{{ include.itemprop | default: 'address' }}" itemtype="http://schema.org/PostalAddress" itemscope="">
 	{% if include.address.url %}
-		<a href="{{ include.address.url }}" target="_blank" class="block clearfix color-inherit" itemprop="url">
+		<a href="{{ include.address.url }}" target="_blank" class="block clearfix" itemprop="url">
 	{% endif %}
 	<div class="float-left">{% include icon.html icon='location' %}</div>
 	<div class="float-left">
