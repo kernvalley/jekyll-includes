@@ -1,21 +1,24 @@
 <div id="{{ include.event.name | slugify }}" class="{{ include.itemprop | default: 'event' }}" itemtype="http://schema.org/Event" itemscope="">
-	<div class="center">
-		{% include imgur.html
-			url=include.event.image
-			itemprop='image'
-			sizes='(min-width: 700px) 30vw, 90vw'
-			class='event-thumb'
-		%}
+	<div>
+		{% if include.event.url %}<a href="{{ include.event.url | absolute_url }}">{% endif %}
 		<h4 class="event-title center underline" itemprop="name">
 			{{ include.event.name }}
 		</h4>
+		{% if include.event.url %}</a>{% endif %}
+		<figure class="event-thumb center" itemprop="image">
+			{% include imgur.html
+				url=include.event.image
+				itemprop='url'
+				sizes='(min-width: 700px) 30vw, 90vw'
+			%}
+		</figure>
 		<time class="event-begin" itemprop="startDate" datetime="{{ include.event.startDate | date_to_xmlschema }}">
 			{% include icon.html icon='events' %}
 			{{ include.event.startDate | date: '%a %b %-d, %Y %l:%M %p' }}
 		</time>
 	</div>
 	<br />
-	<details class="event-details">
+	<details class="event-details"{% if include.hideDetails %} hidden=""{% endif %}>
 		<summary role="button">More Info</summary>
 		<hr />
 		<time class="event-end" itemprop="endDate" datetime="{{ include.event.startDate | date_to_xmlschema }}">
