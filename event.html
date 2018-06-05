@@ -1,9 +1,9 @@
-<div class="event" itemtype="http://schema.org/Event" itemscope="">
-	<div>
+<div id="{{ include.event.name | slugify }}" class="{{ include.itemprop | default: 'event' }}" itemtype="http://schema.org/Event" itemscope="">
+	<div class="center">
 		{% include imgur.html
 			url=include.event.image
 			itemprop='image'
-			sizes='(min-width: 700px) 400px, 100vw'
+			sizes='(min-width: 700px) 30vw, 90vw'
 			class='event-thumb'
 		%}
 		<h4 class="event-title center underline" itemprop="name">
@@ -24,19 +24,7 @@
 			{{ include.event.endDate | date: '%a %b %-d, %Y %l:%M %p' }}
 		</time>
 		<hr />
-		{% if include.event.location.url %}<a href="{{ include.event.location.url }}" target="_blank" rel="noopener external">{% endif %}
-		<address class="event-location" itemprop="location" itemtype="http://schema.org/Place" itemscope="">
-			{% include icon.html icon='location' %}
-			{% if include.event.location.name %}<b itemprop="name">{{ include.event.location.name }}</b>{% endif %}
-			<div itemprop="address" itemtype="http://schema.org/PostalAddress" itemscope="">
-				<span class="street-address" itemprop="streetAddress">{{ include.event.location.streetAddress }}</span>
-				<span itemprop="addressLocality" class="event-city">{{ include.event.location.addressLocality }}</span>,
-				<span itemprop="addressRegion" class="event-state">{{ include.event.location.addressRegion }}</span>
-				<meta itemprop="postalCode" content="{{ include.event.location.postalCode }}" />
-				<meta itemprop="addressCountry" content="{{ include.event.location.addressCountry | default: 'United States' }}" />
-			</div>
-		</address>
-		{% if include.event.location.url %}</a>{% endif %}
+		{% include address.html address=include.event.location itemprop='location' %}
 		<hr />
 		<div class="event-description" itemprop="description">
 			{% include icon.html icon='note' %}{{ include.event.description }}
