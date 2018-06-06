@@ -5,7 +5,7 @@
 	<div class="float-left">{% include icon.html icon='location' %}</div>
 	<div class="float-left">
 		{% if include.address.name %}
-			<h4 itemprop="name">{{ include.address.name }}</h4>
+			<div itemprop="name">{{ include.address.name }}</div>
 		{% endif %}
 		{% if include.address.streetAddress %}
 			<div itemprop="streetAddress">{{ include.address.streetAddress }}</div>
