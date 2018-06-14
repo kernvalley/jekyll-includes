@@ -27,7 +27,9 @@
 			{{ include.event.endDate | date: '%a %b %-d, %Y %l:%M %p' }}
 		</time>
 		<hr />
-		{% include address.html address=include.event.location itemprop='location' %}
+		<div class="event-location" itemprop="location" itemtype="http://schema.org/Place" itemscope="">
+			{% include address.html address=include.event.location itemprop='address' %}
+		</div>
 		<hr />
 		<div class="event-description" itemprop="description">
 			{% include icon.html icon='note' %}{{ include.event.description }}
