@@ -5,7 +5,7 @@
 			{{ include.event.name }}
 		</h4>
 		{% if include.event.url %}</a>{% endif %}
-		<figure class="event-thumb center" itemprop="image">
+		<figure class="event-thumb center" itemprop="image" itemtype="http://schema.org/ImageObejct" itemscope="">
 			{% include imgur.html
 				url=include.event.image
 				itemprop='url'
