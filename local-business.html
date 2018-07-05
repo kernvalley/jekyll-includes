@@ -1,14 +1,14 @@
+<h3 class="center" itemprop="name">
+	{% if include.business.url %}
+		<a href="{{ include.business.url }}" class="color-inherit">{{ include.business.name }}</a>
+	{% else %}
+		{{ include.business.name }}
+	{% endif %}
+</h3>
 <figure class="float-left" itemprop="image" itemtype="http://schema.org/ImageObject" itemscope="">
-	{% include imgur.html url=include.business.image.url itemprop='url' sizes='20vw' %}
+	{% include imgur.html url=include.business.image.url itemprop='url' sizes='(max-width: 800px) 95vw, 20vw' %}
 </figure>
 <div class="float-left">
-	<h3 itemprop="name">
-		{% if include.business.url %}
-			<a href="{{ include.business.url }}" class="color-inherit">{{ include.business.name }}</a>
-		{% else %}
-			{{ include.business.name }}
-		{% endif %}
-	</h3>
 	{% if include.business.url %}
 		{% include url.html url=include.business.url %}<br />
 	{% endif %}
