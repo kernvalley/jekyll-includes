@@ -1,6 +1,6 @@
 <div id="{{ include.event.name | slugify }}" class="{{ include.itemprop | default: 'event' }}" itemtype="http://schema.org/Event" itemscope="">
 	<div>
-		{% if include.event.url %}<a href="{{ include.event.url | absolute_url }}">{% endif %}
+		{% if include.event.url %}<a href="{{ include.event.url  }}">{% endif %}
 		<h4 class="event-title center underline" itemprop="name">
 			{{ include.event.name }}
 		</h4>
@@ -51,7 +51,7 @@
 		{% if include.event.url %}
 			<hr />
 			{% include icon.html icon='link' %}
-			<a href="{{ include.event.url | absolute_url }}" class="underline" itemprop="url">Click here to learn more</a>
+			<a href="{{ include.event.url  }}" class="underline" itemprop="url">Click here to learn more</a>
 		{% endif %}
 		{% if include.event.organizer %}
 			<hr />
@@ -60,7 +60,7 @@
 					</span>Organized by</span>
 					<span itemprop="name">
 						{% if include.event.organizer.url %}
-							<a href="{{ include.event.organizer.url | absolute_url }}" class="event-organizer-url underline" target="_blank" rel="noopener external">
+							<a href="{{ include.event.organizer.url  }}" class="event-organizer-url underline" target="_blank" rel="noopener external">
 								{{ include.event.organizer.name }}
 							</a>
 						{% else %}

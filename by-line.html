@@ -27,10 +27,10 @@
 					%}
 				</a>
 			{% elsif author.image %}
-				<img itemprop="image" src="{{ author.image | absolute_url }}" class="round {{ include.animation | default: 'jackInTheBox' }} animation-speed-normal animation-ease-out" />
+				<img itemprop="image" src="{{ author.image  }}" class="round {{ include.animation | default: 'jackInTheBox' }} animation-speed-normal animation-ease-out" />
 			{% endif %}
 			{% if author.url %}
-			<a itemprop="url" href="{{ author.url | absolute_url }}" rel="external noopener" class="no-text-decoration">
+			<a itemprop="url" href="{{ author.url  }}" rel="external noopener" class="no-text-decoration">
 				{% include icon.html icon='web-browser' class=icon-class %}
 			</a>
 			{% endif %}
@@ -57,7 +57,7 @@
 			{% if author.sameAs.youtube %}
 				<a itemprop="sameAs" href="https://youtube/com/channel/{{ author.youtube }}" rel="noopener external" title="YouTube" class="no-text-decoration">
 					<svg class="icon {{ include.animation | default: 'jackInTheBox' }} animation-speed-normal animation-ease-out">
-						<use xlink:href="{{ site.icons | absolute_url | append: '#youtube' }}" />
+						<use xlink:href="{{ site.icons  | append: '#youtube' }}" />
 					</svg>
 				</a>
 			{% endif %}
