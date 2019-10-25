@@ -1,5 +1,5 @@
 <div id="project-{{ include.project.name | slugify }}" class="{{ include.animation | default: 'jackInTheBox' }} project card shadow optimize-legibility animation-paused animation-overshoot animation-speed-crawl animation-fill-forwards relative transition-all transition-speed-normal transition-ease-in-out">
-	<a href="{{ include.project.url | absolute_url }}" target="_{{ include.project.target | default: 'blank' }}" class="block" rel="noopener external" />
+	<a href="{{ include.project.url  }}" target="_{{ include.project.target | default: 'blank' }}" class="block" rel="noopener external" />
 		<h3 class="center font-title color-accent project-name">{{ include.project.name }}</h3>
 		<img src="{{ include.project.screenshot }}" class="filter-shadow project-screenshot" alt="{{ include.project.name }} image" crossorigin="anonymous" />
 	</a>

@@ -1,5 +1,5 @@
 <div id="contact-section" class="clearfix font-article background-primary color-default" itemtype="http://schema.org/Person" itemprop="about" itemscope="">
-	<a href="{{ site.url | absolute_url }}" title="Home" class="fixed top left color-alt filter-shadow-dark bigger">
+	<a href="{{ site.url  }}" title="Home" class="fixed top left color-alt filter-shadow-dark bigger">
 		{% include icon.html icon='home' %}
 	</a>
 	<figure itemprop="image" itemtype="http://schema.org/ImageObject" itemscope="" class="float-left">
@@ -44,7 +44,7 @@
 		{% if include.person.description %}
 			<hr />
 			<div class="clearfix">
-				{% include icon.html icon='note' class='icon float-left' %}
+				{% include icon.html icon='note' class='icon current-color float-left' %}
 				<blockquote class="float-left" itemprop="description">{{ include.person.description }}</blockquote>
 			</div>
 			<hr />

@@ -4,7 +4,7 @@
 		<ul class="footer-links">
 			{% for link in site.data.links.footer %}
 				<li class="footer-link">
-					<a class="color-inherit" href="{{ link.href | absolute_url }}" target="{{ link.target | default: '_self' }}"{% if link.external %} rel="external noopener"{% endif %}  referrerpolicy="{{ link.referrerpolicy | default: 'origin-when-cross-origin' }}">
+					<a class="color-inherit" href="{{ link.href  }}" target="{{ link.target | default: '_self' }}"{% if link.external %} rel="external noopener"{% endif %}  referrerpolicy="{{ link.referrerpolicy | default: 'origin-when-cross-origin' }}">
 						{% if link.icon %}{% include icon.html icon=link.icon class=footer-icon-class %}{% endif %}
 						<span>{{ link.text }}</span>
 					</a>

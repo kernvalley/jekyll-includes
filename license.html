@@ -7,7 +7,7 @@
 	{% if page.author %}
 		<span>by</span>
 		{% if page.author_url %}
-			<a xmlns:cc="http://creativecommons.org/ns#" href="{{ page.author_url | absolute_url }}" property="cc:attributionName" rel="cc:attributionURL">{{ page.author }}</a>
+			<a xmlns:cc="http://creativecommons.org/ns#" href="{{ page.author_url  }}" property="cc:attributionName" rel="cc:attributionURL">{{ page.author }}</a>
 		{% else %}
 			<span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">{{ page.author }}</a>
 		{% endif %}

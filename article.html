@@ -8,7 +8,7 @@
 			{% capture hash %}{{ include.url | replace: 'https://i.imgur.com/', '' | replace: 'https://imgur.com/', '' | replace: '.png', '' | replace: '.jpg', '' }}{% endcapture %}
 			<meta itemprop="image" content="https://i.imgur.com/{{ hash }}m.png" />
 		{% elsif page.image %}
-			<meta itemprop="image" content="{{ page.image | absolute_url }}" />
+			<meta itemprop="image" content="{{ page.image  }}" />
 		{% endif %}
 		{% if page.description %}
 			<meta itemprop="description" content="{{ page.description }}" />
@@ -17,7 +17,7 @@
 			<meta itemprop="keywords" content="{{ page.tags | join: ', '}}" />
 		{% endif %}
 		<meta itemptop="wordCount" content="{{ content | number_of_words }}" />
-		<meta itemprop="url" content="{{ page.url | absolute_url }}" />
+		<meta itemprop="url" content="{{ page.url  }}" />
 		<details open="">
 			<summary class="block">
 				<h1 class="inline-block">
@@ -72,7 +72,7 @@
 						{% if publisher.email %}<meta itemprop="email" content="{{ publisher.email }}" />{% endif %}
 						{% if publisher.logo %}
 							<div itemprop="logo" itemtype="http://schema.org/ImageObject" itemscope="">
-								<meta itemprop="url" content="{{ publisher.logo.url | absolute_url }}" />
+								<meta itemprop="url" content="{{ publisher.logo.url  }}" />
 							</div>
 						{% endif %}
 						{% if publisher.sameAs %}{% for link in publisher.sameAs %}

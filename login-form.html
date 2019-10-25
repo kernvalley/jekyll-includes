@@ -1,5 +1,5 @@
 <dialog id="login-dialog" class="animation-speed-normal animation-ease-in-out fadeInDown relative">
-	<form name="login" method="post" action="{{ include.action | default: '/login/' | absolute_url }}">
+	<form name="login" method="post" action="{{ include.action | default: '/login/'  }}">
 		<fieldset>
 			<legend>Login</legend>
 			<label for="email">{% include icon.html icon='mail-unread' %}</label>

@@ -1,7 +1,8 @@
 <button
-	data-share="{{ include.share | default: ''}}"
 	title="{{ include.title | default: 'Share Page' }}"
+	url="{{ include.url | default: page.url }}"
 	class="{{ include.position | default: 'fixed' }} round shadow-dark color-alt border-hidden background-accent z-{{ include.z-index | default: '4' }}"
 	aria-label="{{ include.title | default: 'Share Page' }}"
 	hidden=""
+	is="share-button"
 >{% include icon.html icon='share' %}</button>
