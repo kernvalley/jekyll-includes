@@ -1,5 +1,5 @@
 <button
-	title="{{ include.title | default: 'Share Page' }}"
+	title="{{ include.title | default: page.title }}"
 	url="{{ include.url | default: page.url }}"
 	class="{{ include.position | default: 'fixed' }} round shadow-dark color-alt border-hidden background-accent z-{{ include.z-index | default: '4' }}"
 	aria-label="{{ include.title | default: 'Share Page' }}"
