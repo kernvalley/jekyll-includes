@@ -34,16 +34,22 @@
 		<div class="event-description" itemprop="description">
 			{% include icon.html icon='note' %}{{ include.event.description }}
 		</div>
-		{% if include.event.offers %}{% for offer in include.event.offers %}
+		<hr />
+		{% if include.event.offers %}<div>{% for offer in include.event.offers %}
 			<hr />
-			<div itemprop="offers" itemtype="http://schema.org/Offer" itemscope="">
+			<div class="center btn btn-primary block" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="">
 				<b class="event-price">
+					<span itemprop="name">{{ offer.name | default: 'General Admission' }}</span>:
 					$<span itemprop="price">{{ offer.price }}</span>
 				</b>
 				<meta itemprop="priceCurrency" content="{{ offer.eventCurrency | default: 'USD' }}" />
 			</div>
-		{% endfor %}{% else %}
-			<div itemprop="offers" itemtype="http://schema.org/Offer" itemscope="" hidden="">
+		{% endfor %}</div>{% else %}
+			<div class="center btn btn-primary block" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="">
+				<b class="event-price">
+					<span itemprop="name">Admission</span>:
+					<span>Free</span>
+				</b>
 				<meta itemprop="price" content="0" />
 				<meta itemprop="priceCurrency" content="{{ offer.eventCurrency | default: 'USD' }}" />
 			</div>
