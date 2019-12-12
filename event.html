@@ -43,13 +43,25 @@
 		<hr />
 		{% if include.event.offers %}<div>{% for offer in include.event.offers %}
 			<hr />
-			<div class="center btn btn-primary block" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="">
-				<b class="event-price">
-					<span itemprop="name">{{ offer.name | default: 'General Admission' }}</span>:
-					$<span itemprop="price">{{ offer.price }}</span>
-				</b>
-				<meta itemprop="priceCurrency" content="{{ offer.eventCurrency | default: 'USD' }}" />
-			</div>
+			{% if offer.url %}
+				<a href="{{ offer.url }}" role="button" rel="noopener external" class="center btn btn-primary event-offer-btn" itemprop="offers" itemtype="http://schema.org/Offer" itemscope=""{% if offer.availability and offer.availability != 'InStock' %} title="Unavailable" disabled=""{% endif %}>
+					<meta itemprop="url" content="{{ offer.url }}" />
+					<b class="event-price">
+						<span itemprop="name">{{ offer.name | default: 'General Admission' }}</span>:
+						$<span itemprop="price">{{ offer.price }}</span>
+					</b>
+					<meta itemprop="priceCurrency" content="{{ offer.eventCurrency | default: 'USD' }}" />
+					<link itemprop="availability" href="https://schema.org/{{ offer.availability | default: 'InStock' }}" />
+				</a>
+			{% else %}
+				<div role="button" class="center btn btn-primary block cursor-default" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="">
+					<b class="event-price">
+						<span itemprop="name">{{ offer.name | default: 'General Admission' }}</span>:
+						$<span itemprop="price">{{ offer.price }}</span>
+					</b>
+					<meta itemprop="priceCurrency" content="{{ offer.eventCurrency | default: 'USD' }}" />
+				</div>
+			{% endif %}
 		{% endfor %}</div>{% else %}
 			<div class="center btn btn-primary block" itemprop="offers" itemtype="http://schema.org/Offer" itemscope="">
 				<b class="event-price">
@@ -69,7 +81,7 @@
 			<hr />
 			<div class="event-organizer" itemprop="organizer" itemtype="{{ include.event.organizer['@context'] | default: 'http://schema.org'}}/{{ include.event.organizer['@type'] | default: 'Organization'}}" itemscope="">
 				<h5>
-					</span>Organized by</span>
+					<span>Organized by</span>
 					<span itemprop="name">
 						{% if include.event.organizer.url %}
 							<a href="{{ include.event.organizer.url  }}" class="event-organizer-url underline" target="_blank" rel="noopener external">
